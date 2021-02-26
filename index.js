@@ -1,11 +1,44 @@
-const inqirer = require('inquirer')
-const path = require('path')
-const fs = require('fs')
-const generateMarkdown = require('./')
+const inqirer = require('inquirer');
+const path = require('path');
+const fs = require('fs');
+const generateReadme = require('./');
+
 
 //create my array of questions for the user input
-
-const questions = [
+//  prompt for title, description, table of contents, installation, usage, license, contributing, tests, and questions.
+function promptUser(){[
+	{
+		type: "input",
+		name: "projectTitle",
+		message: "What is the title of this project?"
+	},
+	{
+		type: "input",
+		name: "description",
+		message: "Describe your project"
+	},
+	{
+		type: "input",
+		name: "Installation",
+		message: "If applicable, what is the installation process? "
+	},
+	{
+		type: "input",
+		name: "usage",
+		message: "What is this project used for?"
+	},
+	{
+		type: 'list',
+		name: 'license',
+		message: 'What kind of license is your project using?',
+		choices: [
+			'MIT',
+			'APACHE',
+			'MIT',
+			'MOZILLA',
+			'NONE'
+		]
+	},
 	{
 		type: 'input',
 		name: 'github',
@@ -16,12 +49,7 @@ const questions = [
 		name: 'email',
 		message: 'what is your email address?'
 	},
-	{
-		type: 'list',
-		name: 'license',
-		message: 'What kind of license is your project using?'
-		choices: ['MIT', 'APACHE', 'NONE']
-	}
+	
 ]
 
 // Function to write the readME file using the user input
