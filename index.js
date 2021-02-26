@@ -1,9 +1,11 @@
 // Location of Dependencies and global var
 const inqirer = require('inquirer');
-const path = require('path');
 const fs = require('fs');
-const generateReadMe = require('./');
 const inquirer = require('inquirer');
+const generateReadMe = require('./utility/generateReadMe');
+
+
+
 
 
 //create my array of questions for the user input
@@ -22,7 +24,7 @@ function promptUser(){
 		},
 		{
 			type: "input",
-			name: "Installation",
+			name: "installation",
 			message: "If applicable, what is the installation process? "
 		},
 		{
@@ -69,3 +71,9 @@ function promptUser(){
 		}
 	]);
 }
+
+//write the function to initialize the application
+function init(){
+	inquirer.prompt(questions).then((inquirerResponses) => {
+	
+})

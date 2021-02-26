@@ -1,34 +1,52 @@
-// Function to write the readME file using the user input
-function writeToFile(fileName, data) {
-	return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-
-//write the function to initialize the application
-function init(){
-	inquirer.prompt(questions).then((inquirerResponses) => {
-	
-})
-
-
 //create a function that returns the license link based on the user pick of none return something.
 //create a function that returns the license section of the readME if there is none return something
 
 function generateReadMe(data) {
 return `
+<h1 align="center">${data.projectTitle} </h1>
+
+![badge](https://img.shields.io/badge/license-${answers.license}-blue)<br />
+
 	##Description
 	${data.description}
 
     ##Table of Contents
+    - [Description](#description)
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [License](#license)
+    - [Contributing](#contributing)
+    - [Tests](#tests)
+    - [Questions](#questions)
+
+    ##Installation
+    ${data.installation}
+
+    ##Usage
+    ${data.usage}
+
+    ##License
+    ${data.license}
+    This project has a  ${data.license} license.
+
+    ##Contributing
+    ${data.contributors}
+
+    ##Tests
+    ${data.tests}
+
+    ##Questions
+    ${data.questions}
     
-	##Github User
-	${data.github}
+	##Github Username
+	<br/>
+    Follow me on Github: [${data.username}] ((https://github.com/${data.username}))
 
 	##Github Email
-	${data.email}
+	Feel free to reachout via: ${data.email}
 	
-	##User License
-	${data.license}
-
-	`
+README created with [README-Generator] (https://github.com/nme22/README-Generator)
+	`;
 }
 
 module.exports = generateReadMe;
