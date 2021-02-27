@@ -1,8 +1,9 @@
 // Location of Dependencies and global var
-const inqirer = require('inquirer');
+const inquirer = require('inquirer');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadMe = require('./utility/generateReadMe');
+const writeFile = utility.promisfy(fs.writeFile);
 
 
 
@@ -73,7 +74,18 @@ function promptUser(){
 }
 
 //write the function to initialize the application
-function init(){
-	inquirer.prompt(questions).then((inquirerResponses) => {
-	
-})
+async function init(){
+	try {
+		// Asks questions and grabs responses
+		const data = await promptUser();
+		const writeReadMe = generateReadMe(data);
+
+		// Write ReadMe.md and send to a folder
+		await writeFile('./product/README.md', writeReadMe);
+		console.log(' Generated to README.md');
+	} catch(err) {
+		console.log(err);
+	}
+}
+
+init();
