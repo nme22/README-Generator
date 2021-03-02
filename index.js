@@ -31,6 +31,7 @@ const questions =[
 			message: "What is this project used for?"
 		},
 		{
+			// Lists different types of licenses for projects
 			type: 'list',
 			name: 'license',
 			message: 'What kind of license is your project using?',
@@ -58,11 +59,13 @@ const questions =[
 			message: 'What if this project has an issue?'
 		},
 		{
+			//Asks user for their Githhub Username
 			type: 'input',
 			name: 'username',
 			message: 'what is your Github username?'
 		},
 		{
+			// Asks user for their Email Address
 			type: 'input',
 			name: 'email',
 			message: 'what is your email address?'
