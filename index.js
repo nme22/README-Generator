@@ -1,9 +1,8 @@
 // Location of Dependencies and global var
-const inquirer = require('inquirer');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadMe = require('./utility/generateReadMe');
-const writeFile = utility.promisfy(fs.writeFile);
+
 
 
 
@@ -81,10 +80,10 @@ async function init(){
 		const writeReadMe = generateReadMe(data);
 
 		// Write ReadMe.md and send to a folder
-		await writeFile('./product/README.md', writeReadMe);
+		await writeFile('./product', writeReadMe);
 		console.log(' Generated to README.md');
 	} catch(err) {
-		console.log(err);
+		console.log(err)
 	}
 }
 
