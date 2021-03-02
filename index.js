@@ -2,7 +2,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadMe = require('./utility/generateReadMe');
-const writeFile = fs.writeFile;
 
 
 
@@ -10,8 +9,7 @@ const writeFile = fs.writeFile;
 
 //create my array of questions for the user input
 //  prompt for title, description, table of contents, installation, usage, license, contributing, tests, and questions.
-function promptUser(){
-	return inquirer.prompt([
+const questions =[ 
 		{
 			type: "input",
 			name: "projectTitle",
@@ -69,22 +67,20 @@ function promptUser(){
 			name: 'email',
 			message: 'what is your email address?'
 		}
-	]);
+];
+// function to write the README
+function writeToFile(fileName, data) {
+	fs.writeFile(fileName, (data), (err) =>
+	err ? console.error(err) : console.log('Got it!')
+	);
 }
 
-//write the function to initialize the application
-async function init(){
-	try {
-		// Asks questions and grabs responses
-		const data = await promptUser();
-		const writeReadMe = generateReadMe(data);
-
-		// Write ReadMe.md and send to a folder
-		await writeFile('./product', writeReadMe);
-		console.log(' Generated to README.md');
-	} catch(err) {
-		console.log(err)
-	}
+function init() {
+    // run the inquirer. prompt function to prompt questions
+    inquirer.prompt(questions).then((answers) => { 
+        writeToFile('README.md', generateReadMe(answers))
+    });
+     
 }
 
 init();
