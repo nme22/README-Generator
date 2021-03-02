@@ -2,7 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadMe = require('./utility/generateReadMe');
-
+const writeFile = fs.writeFile;
 
 
 
