@@ -11,13 +11,13 @@ return `
 	${data.description}
 
     ##Table of Contents
-    - [Description](#description)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
+    - [Description]
+    - [Installation]
+    - [Usage]
+    - [License]
+    - [Contributing]
+    - [Tests]
+    - [Questions]
 
     ##Installation
     ${data.installation}
@@ -39,7 +39,7 @@ return `
     ${data.questions}
     
 	##Github Username
-	<br/>
+
     Follow me on Github: [${data.username}] ((https://github.com/${data.username}))
 
 	##Github Email
