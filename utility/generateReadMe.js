@@ -2,15 +2,15 @@
 //create a function that returns the license section of the readME if there is none return something
 
 function generateReadMe(data) {
-return `
+    return `
 <h1 align="center">${data.projectTitle} </h1>
 
 ![badge](https://img.shields.io/badge/license-${data.license}-blue)<br />
 
-	##Description
+## Description
 	${data.description}
 
-    ##Table of Contents
+## Table of Contents
     - [Description]
     - [Installation]
     - [Usage]
@@ -19,30 +19,30 @@ return `
     - [Tests]
     - [Questions]
 
-    ##Installation
+## Installation
     ${data.installation}
 
-    ##Usage
+## Usage
     ${data.usage}
 
-    ##License
+## License
     ${data.license}
     This project has a  ${data.license} license.
 
-    ##Contributing
+## Contributing
     ${data.contributors}
 
-    ##Tests
+## Tests
     ${data.tests}
 
-    ##Questions
+## Questions
     ${data.questions}
     
-	##Github Username
+##Github Username
 
     Follow me on Github: [${data.username}] ((https://github.com/${data.username}))
 
-	##Github Email
+##Github Email
 	Feel free to reachout via: ${data.email}
 	
 README created with [README-Generator] (https://github.com/nme22/README-Generator)
